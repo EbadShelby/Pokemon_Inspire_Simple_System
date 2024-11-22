@@ -9,6 +9,7 @@ namespace PokemonInspire
     internal class Program
     {
         // Class to represent a user
+        /*
         public class User
         {
             public string Username { get; set; }
@@ -20,6 +21,7 @@ namespace PokemonInspire
                 Password = password;
             }
         }
+        */
         // List to store all registered users
         static List<User> users = new List<User>();
 
