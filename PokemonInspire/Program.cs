@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace PokemonInspire
 {
     internal class Program
@@ -11,7 +12,7 @@ namespace PokemonInspire
         static void Main(string[] args)
         {
             bool running = true;
-
+            Console.OutputEncoding = Encoding.UTF8;
             while (running)
             {
                 Console.WriteLine("Welcome to the Pokémon Game System!");
@@ -38,7 +39,6 @@ namespace PokemonInspire
                         Console.WriteLine("Invalid choice. Please try again.");
                         break;
                 }
-
                 Console.WriteLine();
             }
         }
