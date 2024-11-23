@@ -52,7 +52,6 @@
     <Compile Include="Question.cs" />
     <Compile Include="QuestionsBank.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

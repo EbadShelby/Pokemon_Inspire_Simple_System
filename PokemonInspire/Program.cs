@@ -12,7 +12,7 @@ namespace PokemonInspire
         static void Main(string[] args)
         {
             bool running = true;
-            Console.OutputEncoding = Encoding.UTF8;
+
             while (running)
             {
                 Console.WriteLine("Welcome to the Pokémon Game System!");

@@ -11,14 +11,12 @@ namespace PokemonInspire
         public string QuestionText { get; set; }
         public List<string> Options { get; set; }
         public string CorrectAnswer { get; set; }
-        public string Difficulty { get; set; } // Easy, Medium, Hard
 
-        public Question(string questionText, List<string> options, string correctAnswer, string difficulty)
+        public Question(string questionText, List<string> options, string correctAnswer)
         {
             QuestionText = questionText;
             Options = options;
             CorrectAnswer = correctAnswer;
-            Difficulty = difficulty;
         }
     }
 }
