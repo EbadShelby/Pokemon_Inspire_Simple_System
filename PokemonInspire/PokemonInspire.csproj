@@ -43,14 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attack.cs" />
     <Compile Include="AuthService.cs" />
     <Compile Include="Pokemon.cs" />
-    <Compile Include="PokemonData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Question.cs" />
-    <Compile Include="QuestionsBank.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

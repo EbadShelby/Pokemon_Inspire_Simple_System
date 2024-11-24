@@ -19,6 +19,15 @@ namespace PokemonInspire
             {
                 Console.Write("Enter a username: ");
                 username = Console.ReadLine()?.Trim();
+                // Check if username already exists
+                foreach (var user in users)
+                {
+                    if (user.Username == username)
+                    {
+                        Console.WriteLine("Username already exists. Please try a different one.");
+                        return;
+                    }
+                }
 
                 if (string.IsNullOrEmpty(username))
                 {
@@ -35,22 +44,12 @@ namespace PokemonInspire
 
             Console.Write("Enter a password: ");
 
-            // Check if username already exists
-            foreach (var user in users)
-            {
-                if (user.Username == username)
-                {
-                    Console.WriteLine("Username already exists. Please try a different one.");
-                    return;
-                }
-            }
-
             while (true)
             {
-                Console.Write("Enter a password (minimum 10 characters): ");
+                Console.Write("Enter a password (minimum 6 characters): ");
                 password = Console.ReadLine();
 
-                if (password.Length < 10)
+                if (password.Length < 6)
                 {
                     Console.WriteLine("Password must be at least 10 characters long. Please try again.");
                     continue;
@@ -69,9 +68,12 @@ namespace PokemonInspire
                 }
             }
 
-            // Create and add a new user
-            users.Add(new User(username, password));
-            Console.WriteLine("Sign Up successful! You can now log in.");
+            User newUser = new User(username, password);
+            User.SaveUser(newUser);
+
+            Console.WriteLine("Sign-up successful!");
+            Console.WriteLine("Press any key to go back to the main menu...");
+            Console.ReadKey();
         }
         public static void LogIn()
         {
@@ -83,17 +85,23 @@ namespace PokemonInspire
             Console.Write("Enter your password: ");
             string password = Console.ReadLine();
 
-            // Validate username and password
-            foreach (var user in users)
+            if (User.ValidateLogin(username, password))
             {
-                if (user.Username == username && user.Password == password)
-                {
-                    Console.WriteLine($"Welcome back, {username}!");
-                    return;
-                }
+                Console.WriteLine("Login successful!");
+                // Load user data
+                User loggedInUser = User.LoadUser(username);
+                Console.WriteLine($"Welcome back, {loggedInUser.Username}!");
+                Console.WriteLine($"Your current level: {loggedInUser.Level}, XP: {loggedInUser.XP}");
+                Console.WriteLine("Press any key to start playing...");
+                Console.ReadKey();
+                // Here, you can start the game flow or proceed to the game menu.
             }
-
-            Console.WriteLine("Invalid username or password. Please try again.");
+            else
+            {
+                Console.WriteLine("Invalid username or password.");
+                Console.WriteLine("Press any key to go back...");
+                Console.ReadKey();
+            }
         }
     }
 }
